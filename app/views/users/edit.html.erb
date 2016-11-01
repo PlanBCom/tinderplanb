@@ -1,7 +1,7 @@
 <%= simple_form_for(@user, url: url_for(:action => 'update', :controller => 'users'), html: {multipart: true} ) do |f| %>
 
 <div class="container">
-	<h4 class="text-uppercase"><small>Interested in</small></h4>
+<!-- 	<h4 class="text-uppercase"><small>Interested in</small></h4>
 	<div class="dropdown">
 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expended="true">
 			<%= current_user.interest.capitalize %>
@@ -13,17 +13,17 @@
 			<li role="presentation" class="gender"><a role="menuitem" tabindex="-1" href="#">Male</a></li>
 			<li role="presentation" class="gender"><a role="menuitem" tabindex="-1" href="#">Both</a></li>
 		</ul>
-	</div>
+	</div> -->
 	<%= f.input :interest, as: :hidden, label: false %>
 
-	<h4 class="text-uppercase"><small>Profile Description</small></h4>
+	<h4 class="text-uppercase"><small>Description</small></h4>
 	<%= f.input :bio, as: :text, class: "form-control", label: false, :input_html => { :rows => 5, class: 'form-control' } %>
 	
-	<h4 class="text-uppercase"><small>City</small></h4>
+<!-- 	<h4 class="text-uppercase"><small>City</small></h4>
 	<%= f.input :location, label: false, :input_html => { class: 'form-control' } %>
 	
 	<h4 class="text-uppercase"><small>Age</small></h4>
-	<%= f.input :date_of_birth, as: :string, label: false, :input_html => { class: 'form-control' } %>
+	<%= f.input :date_of_birth, as: :string, label: false, :input_html => { class: 'form-control' } %> -->
 
 	<br />
 
@@ -48,11 +48,11 @@
 <% end %>
 
 <script type="text/javascript">
-	$('.gender').click(function(){
-		$("#dropdownMenu1").text( $(this).text() );
-		$("#dropdownMenu1").append('<span class="caret"></span>');
-		$("#user_interest").val( $(this).text() );
-	});
+	// $('.gender').click(function(){
+	// 	$("#dropdownMenu1").text( $(this).text() );
+	// 	$("#dropdownMenu1").append('<span class="caret"></span>');
+	// 	$("#user_interest").val( $(this).text() );
+	// });
 </script>
 
 
