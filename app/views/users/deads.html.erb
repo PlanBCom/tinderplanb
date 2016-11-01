@@ -1,0 +1,12 @@
+<div class="container">
+	<br>
+	<h1>Votos</h1>
+	<table class="table table-stripped">
+		<% @results.each do |result| %>
+		<tr>
+			<td><%= result["votos"] %></td>
+			<td><%= result["name"] %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>

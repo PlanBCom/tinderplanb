@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :require_login
+  before_action :require_login, except: :deads
   before_action :set_user, only: [:edit, :profile, :update, :destroy, :get_email, :matches]
 
   def index
@@ -15,6 +15,20 @@ class UsersController < ApplicationController
         format.js
       end
 
+  end
+
+  def deads
+    @results = ActiveRecord::Base.connection.execute("
+
+    select sum(votos) as votos,
+      (select name from users where id = user_id) as name
+    from (
+      select count(*) as votos, user_id from friendships where State = 'ACTIVE' group by user_id
+      union all
+      select count(*) as votos, friend_id as user_id from friendships group by friend_id
+    ) as A group by user_id order by 1 desc")
+
+    # raise results.to_json
   end
 
   def edit
@@ -32,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    
+
     if @user.destroy
       session[:user_id] = nil
       session[:omniauth] = nil

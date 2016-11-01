@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  
+
   mount RailsAdmin::Engine => '/adminhallo', as: 'rails_admin'
   root 'home#index'
-  
+
   resources :users do
     member do
       get 'profile'
       get 'matches'
     end
   end
-  
+
   get   'auth/facebook/callback', to: "sessions#create"
   match '/sign_out', to: "sessions#destroy", via: :delete
 
@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   delete 'delete_friendship' => "friendships#destroy"
 
   get 'matches/get_email' => "users#get_email"
-  
+  get 'deads' => "users#deads"
+
   # get 'users/index'
 
   # get 'users/edit'
