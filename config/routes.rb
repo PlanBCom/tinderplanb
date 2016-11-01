@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  mount RailsAdmin::Engine => '/adminhallo', as: 'rails_admin'
   root 'home#index'
   
   resources :users do

@@ -60,8 +60,4 @@ gem "cancan"
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem "figaro"
 gem 'utf8-cleaner'
-
-
-
-
-
+gem 'rails_admin', '~> 1.0'
